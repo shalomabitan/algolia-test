@@ -34,5 +34,7 @@ using a console command, you can easily refresh the data. This was amde a consol
 
 Once the command is run and the data is stored in the DB, the frontend will be using Algolia's Vue.js InstantSearch package to make the search brillantly fast. I followed the post from their [site](https://www.algolia.com/doc/tutorials/getting-started/getting-started-with-laravel-scout-vuejs/) and it was a breeze.
 
+# TODO
 
+write tests to make sure that the data is coming in
 
