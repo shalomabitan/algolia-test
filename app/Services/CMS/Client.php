@@ -59,4 +59,24 @@ class Client {
         }
     }
 
+    /**
+     * Download an excel doc given the 
+     * 
+     * @param  array  $ids array of ids to pull in
+     * @return Download  returns the excel sheet to download
+     */
+    public function export(array $ids) 
+    {
+        //get the records
+        $records = \App\Record::whereIn('id', $ids)->get();
+
+        //return the ecxel - easy to do with package
+        return \Excel::create('openpaymentsdata_export' . microtime(true), function($excel) use ($records) {
+            $excel->sheet('data', function($sheet) use ($records) {
+                $sheet->fromArray($records->toArray());
+            });
+        })->download('xls');
+
+    }
+
 }
